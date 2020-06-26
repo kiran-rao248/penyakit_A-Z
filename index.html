@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    <title>Penyakit A-Z | DoctorOnCall</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+    <link rel="stylesheet" href="bootstrap.grid.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="shortcut icon" href="https://doccampaign.s3-ap-southeast-1.amazonaws.com/coronavirus/home/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://doccampaign.s3-ap-southeast-1.amazonaws.com/coronavirus/home/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://doccampaign.s3-ap-southeast-1.amazonaws.com/coronavirus/home/doctorOnCall-icon.png">
+
+    <!-- <script src="script/script.js"></script> -->
+    </head>
+
+    <body>
+        <section class="container-fluid pny-main-bg" style="margin-top: 20px;">
+            <div class="row">
+                <h1>Buat Carian Penyakit</h1>
+
+                <div class="searchbarCol main-search-part" id="searchbarCol">
+                    <form class="searchbar-form" id="searchbar-form" onsubmit="return false" action="">
+                        <div class="search-back-btn" id="search-back-btn" onclick="searchBack()">
+                            <svg viewBox="0 0 31.494 31.494">
+                                <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554  c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587  c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"></path>
+                            </svg>
+                        </div>
+                        <input type="text" id="searchInput" autocomplete="off" class="main-search-bar searchbar-input" onblur="hideSuggest()" onclick="makeSearchbarMobile()" onkeyup="searchAlgolia()" placeholder="Cari Penyakit, Simptom">
+      
+                        <div id="searchBtn" class="search-btn search-button" onclick="searchClear()">
+                            <img src="https://doccampaign.s3-ap-southeast-1.amazonaws.com/coronavirus/home/icons8-search-50%20(1).svg" loading="lazy" alt="Search | DoctorOnCall" class="search-btn-icon">
+                        </div>
+      
+                        <div class="search-result" id="search-result">
+      
+                        </div>
+      
+                        <div class="search-result search-suggest search-suggest-mobile search-style-mobile" id="search-suggest">
+                            <div onclick="searchTerm('Glucose Control Meds')">Glucose Control</div>
+                            <div onclick="searchTerm('Cholestrol Management Meds')">Cholestrol Management</div>
+                            <div onclick="searchTerm('Blood Pressure Control Meds')">Blood Pressure Control</div>
+                            <div onclick="searchTerm('Pain Relief Meds')">Pain Relief</div>
+                            <div onclick="searchTerm('Men\'s Condition Meds')">Men's Condition</div>
+                            <div onclick="searchTerm('Vitamins')">Vitamins A-Z</div>
+                            <div onclick="window.location.href='/medicine/coronavirus-covid-19-test-kit'">COVID-19 Test</div>
+                            <div class="search-history-title">Search History</div>
+                            <section id="search-hist-suggest"></section>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+        <section class="container main-py-margin home-points">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 main-pny-art-img">
+                    <!-- <img src="images/AdobeStock_110900911.png" loading="lazy" alt="DoctorOnCall | Penyakit A-Z"> -->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="main-py-desc">
+                        <h2>Penyebab, Gejala, Diagnosis Dan Rawatan Penyakit Diabetes Insipidus</h2>
+                        <p class="main-py-desc-p">Diabetes Insipidus adalah sebuah penyakit yang berbeza daripada penyakit Diabetes Mellitus ataupun Kencing Manis. Pengertian diabetes insipidus adalah ia merupakan penyakit yang membuatkan tubuh seseorang untuk menghasilkan air kecil lebih banyak daripada yang sepatutnya.</p>
+                        <a href="#" class="main-py-readmore">Baca Selanjutnya</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container home-points">
+            <h2>Berita Terkini COVID-19</h2>
+            <div class="row">
+                <div class="main-py-berita">
+                    <a href="#" class="main-py-br-link">
+                        <img src="images/cute-girl-in-medical-mask-wearing-mask-on-teddy-bear-during-4000607.png">
+                        <p class="main-py-article-1">Dua Cara Utama COVID-19 tersebar. Haiwan Ke Manusia vs Manusia Ke Manusia</p>
+                        <div class="main-py-article-rm">
+                            <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
+                            <p class="main-py-article-3 desktop-only">May 1, 2020</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="main-py-br-link">
+                        <img src="images/AdobeStock_75357733.png">
+                        <p class="main-py-article-1">Ketahui Gejala, Tanda & Simptom Penyakit Coronavirus Sebelum Terlambat!</p>
+                        <div class="main-py-article-rm">
+                            <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
+                            <p class="main-py-article-3 desktop-only">May 1, 2020</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="main-py-br-link">
+                        <img src="images/AdobeStock_105059637.png">
+                        <p class="main-py-article-1">Beberapa Komplikasi Berbahaya Disebabkan Oleh Jangkitan COVID-19</p>
+                        <div class="main-py-article-rm">
+                            <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
+                            <p class="main-py-article-3 desktop-only">May 1, 2020</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- <a href="#" class="main-py-readmore">Baca Berita Terkini</a> -->
+        </section>
+        <section class="container home-points">
+            <h2>Topik Kesihatan Kehamilan</h2>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 main-pny-topik">
+                    <a href="#" class="main-py-art-hamil-indi">
+                        <div class="main-pny-topik-img main-pny-topik-img-1"></div>
+                        <!-- <img src="images/AdobeStock_121099911.png"> -->
+                        <p class="main-py-art-hamil-desc">Punca Rahim Kembang</p>
+                        <p>Ibu tidak digalakkan untuk mengambil ais semasa berpantang kerana ini dikatakan boleh menyebabkan rahim kembang ataupun rahim terjatuh/terkeluar</p>
+                        <p class="main-py-art-hamil-date">May 1, 2020</p>
+                    </a>
+
+                    <a href="#" class="main-py-art-hamil-indi">
+                        <div class="main-pny-topik-img main-pny-topik-img-2"></div>
+                        <!-- <img src="images/AdobeStock_102728629.png"> -->
+                        <p class="main-py-art-hamil-desc">Pantang Selepas Ceaser</p>
+                        <p>Selepas pembedahan czer, ini adalah masa untuk memulihkan semula badan anda dari keletihan mental dan fizikal. Sebab itu, pantang bersalin czer ini sangat penting…</p>
+                        <p class="main-py-art-hamil-date">May 1, 2020</p>
+                    </a>
+
+                    <a href="#" class="main-py-art-hamil-indi">
+                        <div class="main-pny-topik-img main-pny-topik-img-3"></div>
+                        <!-- <img src="images/AdobeStock_296253083.png"> -->
+                        <p class="main-py-art-hamil-desc">Penjagaan Kulit Ketika Hamil</p>
+                        <p>Wanita hamil akan mengalami perubahan pada tubuh badan akibat gangguan hormon ketika mengandung. Bukan saja emosi wanita hamil akan lebih beremosi</p>
+                        <p class="main-py-art-hamil-date">May 1, 2020</p>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="main-pny-kesihat-img">
+                        <h4 class="main-pny-kesihat-div">Adakah anda berisiko menghidapi jangkitan Novel COVID-19?</h4>
+                        <a href="/coronavirus/how-to-find-out-if-i-have-coronavirus-online-test" class="main-pny-risiko">Nilai Risiko Anda</a>
+                    </div>
+                    <div class="main-pny-kesihat-farma">
+                        <h4>Farmasi Atas Talian</h4>
+                        <p>Dapatkan ubat anda secara online melalui e-farmasi DoctorOnCall</p>
+                        <a href="/medicine">Penghantaran Ubat Expres</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <section class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 main-pny-baru">
+                    <h2>Topik Kesihatan Baru</h2>
+                    <a href="#">Penyebab, Gejala, Diagnosis Dan Ubat Sesuai Untuk Penyakit Kelamin<p>May 17, 2020</p></a>
+                    <a href="#">Penyebab, Gejala, Diagnosis, Ubat Dan Rawatan Penyakit Kulit Psoriasis<p>May 17, 2020</p></a>
+                    <a href="#">Cara Mencegah Kesan Buruk Jerebu Terhadap Kesihatan<p>May 17, 2020</p></a>
+                    <a href="#">Penyebab, Jenis, Gejala, Diagnosis Dan Rawatan Penyakit Tiroid<p>May 17, 2020</p></a>
+                    <a href="#">Apakah Penuaan Dan Cara Melambatkan Proses Penuaan<p>May 17, 2020</p></a>
+                    <a href="#">Apakah Punca Ibu Hamil Sering Diserang Sakit Kepala<p>May 17, 2020</p></a>
+                    
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <h2>Youtube DoctorOnCall</h2>
+                    <div class="main-pny-baru-div">
+                        <div class="main-pny-baru-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/5G-85X6rc7s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="main-pny-baru-video-desc"><p>Apakah penyebab psoriasis</p><p>May 1, 2020</p></div>
+                    </div>
+                    <div class="main-pny-baru-div">
+                        <div class="main-pny-baru-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/YPy7gKYCyqk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="main-pny-baru-video-desc"><p>Faktor faktor risiko Batu hempedu</p><p>May 1, 2020</p></div>
+                    </div>
+                    <div class="main-pny-baru-div">
+                        <div class="main-pny-baru-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/gOnCU1daoNI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="main-pny-baru-video-desc"><p>Punca Impotensi</p><p>May 1, 2020</p></div>
+                    </div>
+                    <div class="main-pny-baru-div">
+                        <div class="main-pny-baru-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/cuVo-kcDNs0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="main-pny-baru-video-desc"><p>Herpes Simplex</p><p>May 1, 2020</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container-fluid main-pny-senarai">
+            <div class="container">
+                <div class="row">
+                    <h2>Senarai Penyakit A-Z</h2>
+                    <div class="col-lg-4 col-md-4">
+                        <a href="/asma" class="main-pny-senarai-link">Asma</a>
+                        <a href="/alat-perancang-keluarga" class="main-pny-senarai-link">Alat Perancang Keluarga</a>
+                        <a href="/berangin-ketika-hamil" class="main-pny-senarai-link">Berangin Ketika Hamil</a>
+                        <a href="/buasir" class="main-pny-senarai-link">Buasir</a>
+                        <a href="/cara-berhenti-merokok" class="main-pny-senarai-link">Cara Berhenti Merokok</a>
+                        <a href="/cegah-asma-anak" class="main-pny-senarai-link">Cegah Asma Anak</a>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <a href="/disfungsi-seksual" class="main-pny-senarai-link">Disfungsi Seksual</a>
+                        <a href="/diabetes-jenis-2-kencing-manis-penyebab-dan-gejala" class="main-pny-senarai-link">Diabetes Jenis 2</a>
+                        <a href="/diabetes" class="main-pny-senarai-link">Diabetes</a>
+                        <a href="/demam-fever" class="main-pny-senarai-link">Demam</a>
+                        <a href="/demam-bayi" class="main-pny-senarai-link">Demam Bayi</a>
+                        <a href="/diabetes-insipidus-penyebab-dan-gejala" class="main-pny-senarai-link">Diabetes Insipidus</a>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <a href="/ejakulasi-pramatang-premature-ejaculation" class="main-pny-senarai-link">Ejakulasi pramatang</a>
+                        <a href="/ekzema-sakit-kulit" class="main-pny-senarai-link">Ekzema</a>
+                        <a href="/gonore-gonorrhea-gejala-penyebab-dan-rawatan" class="main-pny-senarai-link">Gonore</a>
+                        <a href="/haid-berlebihan-menorrhagia" class="main-pny-senarai-link">Haid Berlebihan Menorrhagia</a>
+                        <a href="/hiv-aids" class="main-pny-senarai-link">HIV AIDS</a>
+                        <a href="/hipotensi" class="main-pny-senarai-link">Hipostensi</a>
+                    </div>
+                    <section class="container" style="text-align: center;">
+                        <button onclick="location.href='/penyakit-a-z'" class="main-pny-senarai-readmore">Lihat Semua Senarai Penyakit</button>
+                    </section>
+                    
+                </div>
+            </div>
+        </section>
+        
+    </body>
+</html>
