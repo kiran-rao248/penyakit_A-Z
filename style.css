@@ -717,6 +717,26 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 
 /*7.0 Berita Terkini*/
 
+.main-pny-berita-img{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 4px;
+  height: 225px;
+}
+
+.main-pny-berita-img-1{
+ background-image: url('./images/cute-girl-in-medical-mask-wearing-mask-on-teddy-bear-during-4000607.png');
+}
+
+.main-pny-berita-img-2{
+  background-image: url('./images/AdobeStock_75357733.png');
+}
+
+.main-pny-berita-img-3{
+  background-image: url('./images/AdobeStock_105059637.png');
+}
+
 .main-pny-section{
   text-align: left;
 }
@@ -730,20 +750,9 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   margin-top: 20px;
 }
 
-.main-py-br-link{
-  display: block;
-}
-
-@media(min-width:576px){
-  .main-py-br-link{
-    display: inline-block;
-    margin-right: 20px;
-    width: 28.7%;
-  }
-}
-
 .main-py-berita a{
   color: #000;
+  display: block;
   text-decoration: none;
 }
 
@@ -762,23 +771,15 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   margin-right: 20px;
 }
 
-.main-py-br-link img{
-  border-radius: 4px;
-  width: 100%;
-}
-
-@media(min-width:576px){
-  .main-py-berita {
-    display: flex;
-    overflow: auto;
-    width: 115%;
-  }
-}
-@media (max-width: 836px){
-  .main-py-br-link img{
+@media(max-width: 576px){
+  .main-pny-berita-img{
     float: left;
     margin-right: 10px;
     width: 40%;
+    height: 85px;
+  }
+  .main-py-berita a{
+    width: 100%;
   }
   .main-py-article-1{
     height: 80px;
@@ -793,11 +794,13 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 
 .main-pny-topik a{
   color: #000;
+  display: block;
+  height: 142px;
   text-decoration: none;
 }
 
 .main-pny-topik-img{
-  border-radius: 8px;
+  border-radius: 4px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -805,22 +808,6 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   height: 123px;
   margin-right: 15px;
   width: 29.5%;
-}
-
-@media(max-width:576px){
-  .main-pny-topik a{
-    display: block;
-    height: 115px;
-  }
-  .main-pny-topik-img{
-    height: 92px;
-    margin-right: 10px;
-    width: 40%;
-  }
-  .main-pny-topik p:nth-child(3){
-    margin: 0;
-    margin-top: 5px;
-  }
 }
 
 .main-pny-topik-img-1{
@@ -841,6 +828,10 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   margin-right: 20px;
   }
 
+  .main-py-art-hamil-indi p:nth-child(4){
+    margin: 0;
+  }
+
   .main-py-art-hamil a {
     color: #000;
     text-decoration: none;
@@ -858,13 +849,21 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
     text-align: right;
   }
 
+  @media(max-width:992px){
+    .main-py-art-hamil-date{
+      display: none;
+    }
+    .main-py-art-hamil-indi p:nth-child(3){
+      margin: 0;
+    }
+  }
+
   .main-pny-kesihat-img{
     background-image: url("images/ads-covid.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 250px;
-    /* width: 68%; */
   }
 
   @media(max-width:576px){
@@ -882,12 +881,28 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
     .main-pny-kesihat-img a{
       margin-top: 0;
     }
+    .main-pny-topik a{
+      display: block;
+      height: 115px;
+    }
+    .main-pny-topik-img{
+      height: 100px;
+      margin-right: 10px;
+      width: 40%;
+    }
+    .main-pny-topik p:nth-child(2){
+      margin: 0;
+      margin-top: 5px;
+    }
   }
 
   @media(min-width:576px){
     .main-pny-kesihat-farma{
       padding-left: 18px;
     }
+  }
+
+  @media(min-width:991px){
     .main-pny-kesihat-div{
       font-size: 20px;
     }
@@ -896,7 +911,7 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   .main-pny-kesihat-div{
     color: #fff;
     margin-top: 0;
-    padding: 25px;
+    padding: 15px;
     width: 50%;
   }
 
