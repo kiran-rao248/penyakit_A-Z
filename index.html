@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-
     <title>Penyakit A-Z | DoctorOnCall</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
             
-    <link rel="stylesheet" href="bootstrap.grid.min.css">
+    <!-- <link rel="stylesheet" href="/stylesheets/healthArti.css"> -->
     <link rel="stylesheet" href="style.css">
 
     <link rel="shortcut icon" href="https://doccampaign.s3-ap-southeast-1.amazonaws.com/coronavirus/home/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://doccampaign.s3-ap-southeast-1.amazonaws.com/coronavirus/home/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="https://doccampaign.s3-ap-southeast-1.amazonaws.com/coronavirus/home/doctorOnCall-icon.png">
 
-    <!-- <script src="script/script.js"></script> -->
+    <script>
+        function showList(){
+            var showPenyakitList = document.getElementsByClassName('showPenyakitList')
+            var i
+            for(i=0;i < showPenyakitList.length; i++){
+                showPenyakitList[i].style.display ='block'
+            }
+            document.getElementById('hideShowBtn').style.display='none'
+        }
+    </script>
+    <script>
+            function sendPostAJAX(e,t,a,s){var i=new XMLHttpRequest;i.onreadystatechange=function(){i.readyState==XMLHttpRequest.DONE&&(200==i.status?a(JSON.parse(i.responseText)):400==i.status?s(i.response):(alert(i.responseText),alert("not working")))},i.open("POST",e,!0),i.setRequestHeader("Content-Type","application/json");let n=localStorage.getItem("userDetails"),o=localStorage.getItem("session");n&&n.hasOwnProperty("token")&&o&&(i.setRequestHeader("Authorization","Bearer "+n.token),i.setRequestHeader("session",o.id)),i.send(t)}function homepageSendGrid(){let e=document.getElementById("email-val").value;e?sendPostAJAX("/sendGrid",JSON.stringify({email:e,name:"homePage"}),function(e){e.message,window.location.href="https://www.doctoroncall.com.my/medicine/en?utm_source=home-popup-RM12&utm_medium=give-me-discount&utm_campaign=home&utm_content=19-nov-19"},function(e){console.log(e)}):alert("Enter a valid email address")}function showPopup(){document.getElementById("popup").style.display="block",document.getElementById("overlay").style.display="block",document.getElementById("popup").style.transition="opacity 1s",document.getElementById("popup").style.opacity="1"}function closePopup(){document.getElementById("overlay").style.display="none",document.getElementById("popup").style.display="none"}var client,index,now=(new Date).getTime(),setupTime=localStorage.getItem("setupTime");function redirectSignUp(){window.location.href=window.location.origin+"/patient#/signup"}function checkLogin(){JSON.parse(window.localStorage.getItem("userDetails"))?(document.getElementById("header-login-signup").style.display="none",document.getElementById("header-login-account").style.display="inline-block",document.getElementById("header-login-account").style.visibility="visible",document.getElementById("header-login-signup-mobile").style.display="none",document.getElementById("header-login-account-mobile").style.display="inline-flex",document.getElementById("header-login-account-mobile").style.alignItems="center"):(document.getElementById("header-login-signup").style.display="inline-block",document.getElementById("header-login-account").style.display="none",document.getElementById("header-login-signup-mobile").style.display="inline-block",document.getElementById("header-login-account-mobile").style.display="none")}function id(e){return document.getElementById(e)}function updateSearchResult(e){let t="";for(var a=0;a<e.length;a++){var s=e[a].product_type;if(e[a].sku){var i=e[a].sku;if("corporate"!=s&&"nexus"!=i.toLowerCase()){t+='<a class="result-detail noselect" onclick="saveSearch()" href="/medicine/'+e[a].handle+'">';let s="/images/new_home/default-meds.svg";e[a].product_image&&(s=e[a].product_image),t+='<div class="result-image"><div style="background-image:url('+s+')"></div></div>',t+='<div class="result-title-price">',t+='<div class="result-title">'+e[a].title+"<br><span>"+e[a].variant_title+"</span></div>",t+='<div class="result-price"> RM '+e[a].price.toFixed(2)+"</div>",t+="</div>",t+='<div class="result-buy-icon">',t+='<svg viewBox="0 0 172 172"><path d="M120.4,37.84v6.88h27.1975l0.3225,3.01l5.93658,51.94507c-2.3183,-1.00149 -4.7448,-1.79604 -7.2559,-2.36003l-5.23818,-45.71504h-20.9625v7.8475c2.05594,1.19594 3.44,3.37281 3.44,5.9125c0,3.80281 -3.07719,6.88 -6.88,6.88c-3.80281,0 -6.88,-3.07719 -6.88,-6.88c0,-2.53969 1.38406,-4.71656 3.44,-5.9125v-7.8475h-55.04v7.8475c2.05594,1.19594 3.44,3.37281 3.44,5.9125c0,3.80281 -3.07719,6.88 -6.88,6.88c-3.80281,0 -6.88,-3.07719 -6.88,-6.88c0,-2.53969 1.38406,-4.71656 3.44,-5.9125v-7.8475h-20.9625l-13.0075,113.52h89.26764c2.34666,2.61386 5.02006,4.92921 7.95417,6.88h-104.96181l0.43,-3.87l13.76,-120.4l0.3225,-3.01h27.1975v-6.88c0,-19.04094 15.35906,-34.4 34.4,-34.4c19.04094,0 34.4,15.35906 34.4,34.4zM162.11,172h-1.76181c0.55434,-0.36856 1.09938,-0.75014 1.63466,-1.14429zM58.48,37.84v6.88h55.04v-6.88c0,-15.35906 -12.16094,-27.52 -27.52,-27.52c-15.35906,0 -27.52,12.16094 -27.52,27.52z"/><path d="M157.896,137.6c0,2.064 -1.376,3.44 -3.44,3.44h-13.416v13.416c0,2.064 -1.376,3.44 -3.44,3.44c-2.064,0 -3.44,-1.376 -3.44,-3.44v-13.416h-13.416c-2.064,0 -3.44,-1.376 -3.44,-3.44c0,-2.064 1.376,-3.44 3.44,-3.44h13.416v-13.416c0,-2.064 1.376,-3.44 3.44,-3.44c2.064,0 3.44,1.376 3.44,3.44v13.416h13.416c2.064,0 3.44,1.376 3.44,3.44zM172,137.6c0,18.92 -15.48,34.4 -34.4,34.4c-18.92,0 -34.4,-15.48 -34.4,-34.4c0,-18.92 15.48,-34.4 34.4,-34.4c18.92,0 34.4,15.48 34.4,34.4zM165.12,137.6c0,-15.136 -12.384,-27.52 -27.52,-27.52c-15.136,0 -27.52,12.384 -27.52,27.52c0,15.136 12.384,27.52 27.52,27.52c15.136,0 27.52,-12.384 27.52,-27.52z"/></svg></div>',t+="</a>"}}}document.getElementById("search-result").innerHTML=t}null==localStorage.getItem("seenPopUp")&&localStorage.setItem("seenPopUp","0"),"0"==localStorage.getItem("seenPopUp")&&(localStorage.setItem("seenPopUp","1"),setTimeout(function(){showPopup()},15e3)),null==setupTime?localStorage.setItem("setupTime",now):now-setupTime>36e5&&(localStorage.clear(),localStorage.setItem("setupTime",now)),document.addEventListener("DOMContentLoaded",function(){try{checkLogin()}catch(e){console.log(e.message)}});var _0x48b3=["c2hvcGlmeV9wcm9kcHJvZHVjdHM=","MTBWQ05JR0Q0Wg==","MzA4Y2I1MjZhZjBmYzZlODRkYmI1MTUzNGUzYmUyODA=","aW5pdEluZGV4"];!function(e,t){!function(t){for(;--t;)e.push(e.shift())}(++t)}(_0x48b3,101);var _0x651d=function(e,t){var a,s=_0x48b3[e-=0];void 0===_0x651d.fdtPWR&&((a=function(){var e;try{e=Function('return (function() {}.constructor("return this")( ));')()}catch(t){e=window}return e}()).atob||(a.atob=function(e){for(var t,a,s=String(e).replace(/=+$/,""),i=0,n=0,o="";a=s.charAt(n++);~a&&(t=i%4?64*t+a:a,i++%4)?o+=String.fromCharCode(255&t>>(-2*i&6)):0)a="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".indexOf(a);return o}),_0x651d.xqumcX=function(e){for(var t=atob(e),a=[],s=0,i=t.length;s<i;s++)a+="%"+("00"+t.charCodeAt(s).toString(16)).slice(-2);return decodeURIComponent(a)},_0x651d.pyFhCo={},_0x651d.fdtPWR=!0);var i=_0x651d.pyFhCo[e];return void 0===i?(s=_0x651d.xqumcX(s),_0x651d.pyFhCo[e]=s):s=i,s};function initSearch(){client=algoliasearch(_0x651d("0x0"),_0x651d("0x1")),index=client[_0x651d("0x2")](_0x651d("0x3"))}function searchTerm(e){id("searchInput").value=e,searchAlgolia(e,0)}function saveSearch(){if(1==user_typed)if(window.localStorage.getItem("searchHist")){(e=JSON.parse(window.localStorage.getItem("searchHist"))).unshift(id("searchInput").value);try{e=e.slice(0,5)}catch(e){}window.localStorage.setItem("searchHist",JSON.stringify(e))}else{var e=[id("searchInput").value];window.localStorage.setItem("searchHist",JSON.stringify(e))}}function searchAlgolia(e,t){user_typed=0==t?0:1;let a=id("searchInput").value;e&&(a=e);if(a.length>2&&sendPostAJAX("/get/products/search",JSON.stringify({query:a}),function(e){try{updateSearchResult(e.hits)}catch(t){updateSearchResult(JSON.parse(e).hits)}},function(e){console.log(e)}),a.length<2?(updateSearchbarAction("search"),updateSearchResult([]),id("search-suggest").classList.add("searchSuggestShow"),id("search-suggest").classList.add("searchSuggestShowMobile")):(updateSearchbarAction("clear"),id("search-suggest").classList.remove("searchSuggestShow"),id("search-suggest").classList.remove("searchSuggestShowMobile")),13===event.keyCode){event.preventDefault();var s,i=id("searchInput").value;s=window.location.origin+"/medicine/en/search/"+i,window.location.href=s}}function updateSearchbarAction(e){let t="";t+="clear"==e?'<svg style="width:40px" viewBox="0 0 50 50"><path d="M 14.40625 13 L 13 14.40625 L 23.625 25 L 13 35.59375 L 14.40625 37 L 25.0625 26.40625 L 35.6875 37 L 37.09375 35.59375 L 26.46875 25 L 37.09375 14.40625 L 35.6875 13 L 25.0625 23.59375 Z "></path></svg>':'<svg viewBox="0 0 512 512"><path d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>',id("searchBtn").innerHTML=t}function searchClear(){id("searchInput").value="",id("search-result").innerHTML="",updateSearchbarAction("search")}var searchMobile=0;function makeSearchbarMobile(){searchMobile=1,id("searchbarCol").classList.add("searchbar-mobile"),0==id("searchInput").value&&(id("search-suggest").classList.add("searchSuggestShow"),id("search-suggest").classList.add("searchSuggestShowMobile")),id("search-back-btn").classList.add("searchShow"),id("searchbar-form").classList.add("searchbar-form-mobile"),id("searchInput").classList.add("searchbar-input-mobile"),id("searchBtn").classList.add("searchbar-btn-mobile");let e=JSON.parse(window.localStorage.getItem("searchHist"));if(e.length){var t="";for(i=0;i<e.length;i++)t+="<div onclick=\"searchTerm('"+e[i]+"')\">"+e[i]+"</div>";id("search-hist-suggest").innerHTML=t}}function searchBack(){searchMobile=0,id("searchbarCol").classList.remove("searchbar-mobile"),id("search-back-btn").classList.remove("searchShow"),id("searchbar-form").classList.remove("searchbar-form-mobile"),id("searchInput").classList.remove("searchbar-input-mobile"),id("searchBtn").classList.remove("searchbar-btn-mobile"),searchClear(),id("search-suggest").classList.remove("searchSuggestShow"),id("search-suggest").classList.remove("searchSuggestShowMobile")}function hideSuggest(){setTimeout(function(){id("search-suggest").classList.remove("searchSuggestShow")},100)}function searchBtn(){1==searchMobile?searchClear():makeSearchbarMobile()}function setCookie(e,t,a){var s=new Date;s.setTime(s.getTime()+24*a*60*60*1e3);var i="expires="+s.toUTCString();document.cookie=e+"="+t+";"+i+";path=/"}function getCookie(e){for(var t=e+"=",a=document.cookie.split(";"),s=0;s<a.length;s++){for(var i=a[s];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(t))return i.substring(t.length,i.length)}return""}function removeCookie(e){return document.cookie=e+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"}function getURLParam(e){for(var t=null,a=[],s=location.search.substr(1).split("&"),i=0;i<s.length;i++)(a=s[i].split("="))[0]===e&&(t=decodeURIComponent(a[1]));return t}function handleAmpRedirect(){var e=getURLParam("action");e&&setTimeout(function(){var t;"search"==e?t="searchInput":"add"==e?t="product-add":"checkout"==e?t="product-checkout":"signup"==e&&(t="button-login-signup"),history.replaceState({},"redirect",location.protocol+"//"+location.host+location.pathname),document.getElementById(t).click()},500)}function toggleClass(e,t){e&&t&&document.querySelector(e).classList.toggle(t)}var time=1500,newTime=1500;/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&(newTime=500,time=3e3),setTimeout(function(){for(var e=document.getElementsByClassName("lazy-load"),t=0;t<e.length;t++){var a=e[t].getAttribute("data-src");e[t].setAttribute("src",a),e[t].style.visibility="visible"}},time),setTimeout(function(){for(var e=document.getElementsByClassName("lazy-load-new"),t=0;t<e.length;t++){var a=e[t].getAttribute("data-src");e[t].setAttribute("src",a),e[t].style.visibility="visible"}},newTime),document.addEventListener("DOMContentLoaded",function(){try{getCartQuantity()}catch(e){}try{handleAmpRedirect()}catch(e){}try{checkLogin()}catch(e){}});
+    </script>
+
     </head>
 
     <body>
-        <section class="container-fluid pny-main-bg" style="margin-top: 20px;">
+        <%include partials/main-pop-up%>
+        <%include partials/main-header%>
+        <section class="container-fluid pny-main-bg">
             <div class="row">
                 <h1>Buat Carian Penyakit</h1>
 
@@ -55,62 +69,67 @@
 
             </div>
         </section>
-        <section class="container main-py-margin home-points">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 main-pny-art-img">
-                    <!-- <img src="images/AdobeStock_110900911.png" loading="lazy" alt="DoctorOnCall | Penyakit A-Z"> -->
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="main-py-desc">
-                        <h2>Penyebab, Gejala, Diagnosis Dan Rawatan Penyakit Diabetes Insipidus</h2>
-                        <p class="main-py-desc-p">Diabetes Insipidus adalah sebuah penyakit yang berbeza daripada penyakit Diabetes Mellitus ataupun Kencing Manis. Pengertian diabetes insipidus adalah ia merupakan penyakit yang membuatkan tubuh seseorang untuk menghasilkan air kecil lebih banyak daripada yang sepatutnya.</p>
-                        <a href="#" class="main-py-readmore">Baca Selanjutnya</a>
+        <section class="container-fluid main-py-margin home-points">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 ">
+                        <div class="main-pny-art-img"></div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="main-py-desc">
+                            <h2>Penyebab, Gejala, Diagnosis Dan Rawatan Penyakit Diabetes Insipidus</h2>
+                            <p class="main-py-desc-p">Diabetes Insipidus adalah sebuah penyakit yang berbeza daripada penyakit Diabetes Mellitus ataupun Kencing Manis. Pengertian diabetes insipidus adalah ia merupakan penyakit yang membuatkan tubuh seseorang untuk menghasilkan air kecil lebih banyak daripada yang sepatutnya.</p>
+                            <a href="/diabetes-insipidus-penyebab-dan-gejala" class="main-py-readmore">Baca Selanjutnya</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="container home-points">
-            <h2>Berita Terkini COVID-19</h2>
-            <div class="row">
-                <div class="main-py-berita">
-                    <a href="#" class="col-lg-4 col-md-4 col-xs-4 main-py-br-link">
-                        <div class="main-pny-berita-img main-pny-berita-img-1"></div>
-                        <p class="main-py-article-1">Dua Cara Utama COVID-19 tersebar. Haiwan Ke Manusia vs Manusia Ke Manusia</p>
-                        <div class="main-py-article-rm">
-                            <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
-                            <p class="main-py-article-3 desktop-only">May 1, 2020</p>
-                        </div>
-                    </a>
-
-                    <a href="#" class="col-lg-4 col-md-4 col-xs-4 main-py-br-link">
-                        <div class="main-pny-berita-img main-pny-berita-img-2"></div>
-                        <p class="main-py-article-1">Ketahui Gejala, Tanda & Simptom Penyakit Coronavirus Sebelum Terlambat!</p>
-                        <div class="main-py-article-rm">
-                            <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
-                            <p class="main-py-article-3 desktop-only">May 1, 2020</p>
-                        </div>
-                    </a>
-
-                    <a href="#" class="col-lg-4 col-md-4 col-xs-4 main-py-br-link">
-                        <div class="main-pny-berita-img main-pny-berita-img-3"></div>
-                        <p class="main-py-article-1">Beberapa Komplikasi Berbahaya Disebabkan Oleh Jangkitan COVID-19</p>
-                        <div class="main-py-article-rm">
-                            <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
-                            <p class="main-py-article-3 desktop-only">May 1, 2020</p>
-                        </div>
-                    </a>
+        <section class="container-fluid home-points">
+            <div class="container">
+                <h2>Berita Terkini COVID-19</h2>
+                <div class="row">
+                    <div class="main-py-berita">
+                        <a href="/pengenalan-coronavirus/penyebaran" class="col-lg-4 col-md-4 col-xs-4 main-py-br-link">
+                            <div class="main-pny-berita-img main-pny-berita-img-1"></div>
+                            <p class="main-py-article-1">Dua Cara Utama COVID-19 tersebar. Haiwan Ke Manusia vs Manusia Ke Manusia</p>
+                            <div class="main-py-article-rm">
+                                <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
+                                <p class="main-py-article-3 desktop-only">May 1, 2020</p>
+                            </div>
+                        </a>
+    
+                        <a href="/pengenalan-coronavirus/gejala" class="col-lg-4 col-md-4 col-xs-4 main-py-br-link">
+                            <div class="main-pny-berita-img main-pny-berita-img-2"></div>
+                            <p class="main-py-article-1">Ketahui Gejala, Tanda & Simptom Penyakit Coronavirus Sebelum Terlambat!</p>
+                            <div class="main-py-article-rm">
+                                <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
+                                <p class="main-py-article-3 desktop-only">May 1, 2020</p>
+                            </div>
+                        </a>
+    
+                        <a href="/pengenalan-coronavirus/komplikasi" class="col-lg-4 col-md-4 col-xs-4 main-py-br-link">
+                            <div class="main-pny-berita-img main-pny-berita-img-3"></div>
+                            <p class="main-py-article-1">Beberapa Komplikasi Berbahaya Disebabkan Oleh Jangkitan COVID-19</p>
+                            <div class="main-py-article-rm">
+                                <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
+                                <p class="main-py-article-3 desktop-only">May 1, 2020</p>
+                            </div>
+                        </a>
+                    </div>
+    
                 </div>
-
             </div>
+
             <section class="container main-pny-section-center">
-                <button onclick="location.href='/penyakit-a-z'" class="main-pny-berita-link main-pny-senarai-readmore ">Baca Berita Terkini</button>
+                <button onclick="location.href='/coronavirus/news/ms'" class="main-pny-berita-link main-pny-senarai-readmore ">Baca Berita Terkini</button>
             </section>
         </section>
         <section class="container home-points main-pny-kehamil-sec">
             <h2>Topik Kesihatan Kehamilan</h2>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 main-pny-topik">
-                    <a href="#" class="main-py-art-hamil-indi">
+                    <a href="/punca-rahim-kembang" class="main-py-art-hamil-indi">
                         <div class="main-pny-topik-img main-pny-topik-img-1"></div>
                         <p class="main-py-art-hamil-desc">Punca Rahim Kembang</p>
                         <p class="desktop-only">Ibu tidak digalakkan untuk mengambil ais semasa berpantang kerana ini dikatakan boleh menyebabkan rahim kembang ataupun rahim terjatuh/terkeluar</p>
@@ -118,7 +137,7 @@
                         <p class="main-py-art-hamil-date desktop-only">May 1, 2020</p>
                     </a>
 
-                    <a href="#" class="main-py-art-hamil-indi">
+                    <a href="/pantang-selepas-ceaser" class="main-py-art-hamil-indi">
                         <div class="main-pny-topik-img main-pny-topik-img-2"></div>
                         <p class="main-py-art-hamil-desc">Pantang Selepas Ceaser</p>
                         <p class="desktop-only">Selepas pembedahan czer, ini adalah masa untuk memulihkan semula badan anda dari keletihan mental dan fizikal. Sebab itu, pantang bersalin czer ini sangat penting…</p>
@@ -126,7 +145,7 @@
                         <p class="main-py-art-hamil-date desktop-only">May 1, 2020</p>
                     </a>
 
-                    <a href="#" class="main-py-art-hamil-indi">
+                    <a href="/penjagaan-kulit-ketika-hamil" class="main-py-art-hamil-indi">
                         <div class="main-pny-topik-img main-pny-topik-img-3"></div>
                         <p class="main-py-art-hamil-desc">Penjagaan Kulit Ketika Hamil</p>
                         <p class="desktop-only">Wanita hamil akan mengalami perubahan pada tubuh badan akibat gangguan hormon ketika mengandung. Bukan saja emosi wanita hamil akan lebih beremosi</p>
@@ -140,7 +159,7 @@
                 </section> -->
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="main-pny-kesihat-img">
-                        <h4 class="main-pny-kesihat-div">Adakah anda berisiko menghidapi jangkitan Novel COVID-19?</h4>
+                        <h4 class="main-pny-kesihat-div">Adakah anda berisiko menghidapi jangkitan COVID-19?</h4>
                         <a href="/coronavirus/how-to-find-out-if-i-have-coronavirus-online-test" class="main-pny-risiko">Nilai Risiko Anda</a>
                     </div>
                     <div class="main-pny-kesihat-farma">
@@ -152,55 +171,48 @@
             </div>
         </section>
         <section class="container main-pny-section desktop-only">
-            <button onclick="location.href='/penyakit-a-z'" class="main-pny-berita-link main-pny-senarai-readmore ">Baca Lagi</button>
+            <button onclick="location.href='/tanda-awal-kehamilan'" class="main-pny-berita-link main-pny-senarai-readmore ">Baca Lagi</button>
         </section>
         <section class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 main-pny-baru">
                     <h2>Topik Kesihatan Baru</h2>
-                    <a href="#">Penyebab, Gejala, Diagnosis Dan Ubat Sesuai Untuk Penyakit Kelamin<p>May 17, 2020</p></a>
-                    <a href="#">Penyebab, Gejala, Diagnosis, Ubat Dan Rawatan Penyakit Kulit Psoriasis<p>May 17, 2020</p></a>
-                    <a href="#">Cara Mencegah Kesan Buruk Jerebu Terhadap Kesihatan<p>May 17, 2020</p></a>
-                    <a href="#">Penyebab, Jenis, Gejala, Diagnosis Dan Rawatan Penyakit Tiroid<p>May 17, 2020</p></a>
-                    <a href="#">Apakah Penuaan Dan Cara Melambatkan Proses Penuaan<p>May 17, 2020</p></a>
-                    <a href="#">Apakah Punca Ibu Hamil Sering Diserang Sakit Kepala<p>May 17, 2020</p></a>
+                    <a href="/penyakit-kelamin-sti">Penyebab, Gejala, Diagnosis Dan Ubat Sesuai Untuk Penyakit Kelamin<p>May 17, 2020</p></a>
+                    <a href="/penyebab-dan-gejala-psoriasis">Penyebab, Gejala, Diagnosis, Ubat Dan Rawatan Penyakit Kulit Psoriasis<p>May 17, 2020</p></a>
+                    <a href="/pencegahan-kesan-buruk-jerebu">Cara Mencegah Kesan Buruk Jerebu Terhadap Kesihatan<p>May 17, 2020</p></a>
+                    <a href="/penyakit-tiroid-thyroid">Penyebab, Jenis, Gejala, Diagnosis Dan Rawatan Penyakit Tiroid<p>May 17, 2020</p></a>
+                    <a href="/penuaan-aging">Apakah Penuaan Dan Cara Melambatkan Proses Penuaan<p>May 17, 2020</p></a>
+                    <a href="/sakit-kepala-ketika-hamil">Apakah Punca Ibu Hamil Sering Diserang Sakit Kepala<p>May 17, 2020</p></a>
                     
                 </div>
                 
                 <section class="container main-pny-section mobile-only">
-                    <button onclick="location.href='/penyakit-a-z'" class="main-pny-berita-link main-pny-senarai-readmore ">Baca Lagi</button>
+                    <button onclick="location.href='/kesihatan'" class="main-pny-berita-link main-pny-senarai-readmore ">Baca Lagi</button>
                 </section>
                 <div class="col-lg-6 col-md-6">
                     <h2>Youtube DoctorOnCall</h2>
                     <div class="main-pny-baru-div">
-                        <div class="main-pny-baru-video">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/5G-85X6rc7s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="main-pny-baru-video-desc"><p>Apakah penyebab psoriasis</p><p>May 1, 2020</p></div>
-                    </div>
-                    <div class="main-pny-baru-div">
-                        <div class="main-pny-baru-video">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/YPy7gKYCyqk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="main-pny-baru-video-desc"><p>Faktor faktor risiko Batu hempedu</p><p>May 1, 2020</p></div>
-                    </div>
-                    <div class="main-pny-baru-div">
-                        <div class="main-pny-baru-video">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/gOnCU1daoNI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="main-pny-baru-video-desc"><p>Punca Impotensi</p><p>May 1, 2020</p></div>
-                    </div>
-                    <div class="main-pny-baru-div">
-                        <div class="main-pny-baru-video">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/cuVo-kcDNs0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="main-pny-baru-video-desc"><p>Herpes Simplex</p><p>May 1, 2020</p></div>
-                    </div>
+                        <a href="https://www.youtube.com/watch?v=5G-85X6rc7s" target="_blank" class="main-pny-baru-video">
+                            <img src="images/healthArti/Apakah penyebab psoriasis@2x.png">
+                            <div class="main-pny-baru-video-desc"><p>Apakah penyebab psoriasis</p><p>May 1, 2020</p></div>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=YPy7gKYCyqk" target="_blank">
+                            <img src="images/healthArti/Faktor-faktor risiko@2x.png">
+                            <div class="main-pny-baru-video-desc"><p>Faktor faktor risiko Batu hempedu</p><p>May 1, 2020</p></div>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=gOnCU1daoNI" target="_blank">
+                            <img src="images/healthArti/Punca Impotensi@2x.png">
+                            <div class="main-pny-baru-video-desc"><p>Punca Impotensi</p><p>May 1, 2020</p></div>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=cuVo-kcDNs0" target="_blank">
+                            <img src="images/healthArti/Herpes Simplex@2x.png">
+                            <div class="main-pny-baru-video-desc"><p>Herpes Simplex</p><p>May 1, 2020</p></div>
+                        </a>
                 </div>
             </div>
         </section>
         <section class="container main-pny-section desktop-only">
-            <button onclick="location.href='/penyakit-a-z'" class="main-pny-berita-link main-pny-senarai-readmore ">Baca Lagi</button>
+            <button onclick="location.href='/migrain'" class="main-pny-berita-link main-pny-senarai-readmore ">Baca Lagi</button>
         </section>
         <section class="container-fluid main-pny-senarai">
             <div class="container">
@@ -213,25 +225,103 @@
                         <a href="/buasir" class="main-pny-senarai-link">Buasir</a>
                         <a href="/cara-berhenti-merokok" class="main-pny-senarai-link">Cara Berhenti Merokok</a>
                         <a href="/cegah-asma-anak" class="main-pny-senarai-link">Cegah Asma Anak</a>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
                         <a href="/disfungsi-seksual" class="main-pny-senarai-link">Disfungsi Seksual</a>
                         <a href="/diabetes-jenis-2-kencing-manis-penyebab-dan-gejala" class="main-pny-senarai-link">Diabetes Jenis 2</a>
                         <a href="/diabetes" class="main-pny-senarai-link">Diabetes</a>
                         <a href="/demam-fever" class="main-pny-senarai-link">Demam</a>
                         <a href="/demam-bayi" class="main-pny-senarai-link">Demam Bayi</a>
                         <a href="/diabetes-insipidus-penyebab-dan-gejala" class="main-pny-senarai-link">Diabetes Insipidus</a>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
                         <a href="/ejakulasi-pramatang-premature-ejaculation" class="main-pny-senarai-link">Ejakulasi pramatang</a>
                         <a href="/ekzema-sakit-kulit" class="main-pny-senarai-link">Ekzema</a>
                         <a href="/gonore-gonorrhea-gejala-penyebab-dan-rawatan" class="main-pny-senarai-link">Gonore</a>
                         <a href="/haid-berlebihan-menorrhagia" class="main-pny-senarai-link">Haid Berlebihan Menorrhagia</a>
-                        <a href="/hiv-aids" class="main-pny-senarai-link">HIV AIDS</a>
-                        <a href="/hipotensi" class="main-pny-senarai-link">Hipostensi</a>
+                        <a href="/hiv-aids" class="main-pny-senarai-link hidePenyakitList showPenyakitList">HIV AIDS</a>
+                        <a href="/hipotensi" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Hipostensi</a>
+                        <a href="/haid-sakit" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Haid Sakit</a>
+                        <a href="/hipertensi-pulmonal" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Hipertensi Pulmonal</a>
+                        <a href="/herpes-genital-herpes-simplex" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Herpes Genital Herpes Simplex</a>
+                        <a href="/herpes-zoster" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Herpes Zoster</a>
+                        <a href="/hipertensi" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Hipertensi</a>
+                        <a href="/hepatitis-c-penyebab-dan-gejala" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Hepatitis C</a>
+                        <a href="/HPV-human-papillomavirus" class="main-pny-senarai-link hidePenyakitList showPenyakitList">HPV Human Papillomavirus</a>
+                        <a href="/hepatitis-a-penyebab-dan-gejala" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Hepatitis A</a>
+                        <a href="/impotensi-impotence-penyebab-dan-gejala" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Impotensi</a>
+                        <a href="/jerawat-acne" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Jerawat Acne</a>
+                        <a href="/jenis-penyebab-sakit-kepala" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Sakit Kepala</a>
+                        <a href="/kekurangan-berat-badan-kurus" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Kekurangan Berat Badan Kurus</a>
+                        <a href="/kolesterol-tinggi" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Kolesterol Tinggi</a>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        
+                        <a href="/kutu" class="main-pny-senarai-link">Kutu</a>
+                        <a href="/keracunan-makanan" class="main-pny-senarai-link">Keracunan Makanan</a>
+                        <a href="/kurap" class="main-pny-senarai-link">Kurap</a>
+                        <a href="/keputihan-candidiasis" class="main-pny-senarai-link">Keputihan Candidiasis</a>
+                        <a href="/klamidia" class="main-pny-senarai-link">Klamidia</a>
+                        <a href="/kesihatan-mental" class="main-pny-senarai-link">Kesihatan Mental</a>
+                        <a href="/kesan-jerebu" class="main-pny-senarai-link">Kesan Jerebu</a>
+                        <a href="/kanser-payudara" class="main-pny-senarai-link">Kanser Payudara</a>
+                        <a href="/kepentingan-vaksin" class="main-pny-senarai-link">Kepentingan Vaksin</a>
+                        <a href="/migrain" class="main-pny-senarai-link">Migrain</a>
+                        <a href="/migraine" class="main-pny-senarai-link">Migraine</a>
+                        <a href="/menstruasi" class="main-pny-senarai-link">Menstruasi</a>
+                        <a href="/obesiti-kegemukan-obesity" class="main-pny-senarai-link">Obesiti Kegemukan Obesity</a>
+                        <a href="/ovarian-cyst" class="main-pny-senarai-link">Ovarian Cyst</a>
+                        <a href="/pil-perancang-kecemasan-morning-after-pil" class="main-pny-senarai-link">Pil Perancang Kecemasan</a>
+                        <a href="/penyebab-haid-lewat" class="main-pny-senarai-link">Penyebab Haid Lewat</a>
+                        <a href="/pantang-selepas-ceaser" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Pantang Selepas Ceaser</a>
+                        <a href="/penyebab-penyakit-hepatitis-b" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Hepatitis B</a>
+                        <a href="/penyebab-dan-gejala-stroke-angin-ahmar" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Stroke Angin Ahmar</a>
+                        <a href="/penyebab-dan-gejala-diabetes-jenis-1" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Diabetes Jenis-1</a>
+                        <a href="/penyebab-dan-gejala-sifilis-syphilis" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Sifilis</a>
+                        <a href="/penyebab-dan-gejala-penyakit-gallstones-batu-karang-hempedu" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Gallstones Batu Karang Hempedu</a>
+                        <a href="/penyakit-jantung" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Penyakit Jantung</a>
+                        <a href="/penyebab-dan-gejala-psoriasis" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Psoriasis</a>
+                        <a href="/pedih-ulu-hati-refluks-gerd" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Pedih Ulu Hati</a>
+                        <a href="/penyakit-kelamin-sti" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Penyakit Kelamin Sti</a>
+                        <a href="/penuaan-aging" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Penuaan Aging</a>
+                        <a href="/prediabetes" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Prediabetes</a>
+                        <a href="/penyakit-tiroid-thyroid" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Penyakit Tiroid</a>
+                        <a href="/pencegahan-kesan-buruk-jerebu" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Pencegahan Kesan Buruk Jerebu</a>
+                        <a href="/penjagaan-kulit-ketika-hamil" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Penjagaan Kulit Ketika Hamil</a>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+
+                        <a href="/punca-rahim-kembang" class="main-pny-senarai-link">Punca Rahim Kembang</a>
+                        <a href="/punca-bayi-menggigil" class="main-pny-senarai-link">Punca Bayi Menggigil</a>
+                        <a href="/penyakit-kandidiasis-candidiasis" class="main-pny-senarai-link">Penyakit Kandidiasis</a>
+                        <a href="/pengenalan-coronavirus" class="main-pny-senarai-link">Pengenalan Coronavirus</a>
+                        <a href="/petua-turunkan-gula" class="main-pny-senarai-link">Petua Turunkan Gula</a>
+                        <a href="/penyakit-tb" class="main-pny-senarai-link">Penyakit TB</a>
+                        <a href="/pengangkutan-awam-covid" class="main-pny-senarai-link">Pengangkutan Awam Covid</a>
+                        <a href="/sakit-ketuat-wart" class="main-pny-senarai-link">Sakit Ketuat</a>
+                        <a href="/sildenafil-ubat-viagra" class="main-pny-senarai-link">Sildenafil Ubat Viagra</a>
+                        <a href="/sinusitis" class="main-pny-senarai-link">Sinusitis</a>
+                        <a href="/sakit-tekak-sore-throat" class="main-pny-senarai-link">Sakit Tekak</a>
+                        <a href="/sakit-tonsil-tonsilitis" class="main-pny-senarai-link">Sakit Tonsil</a>
+                        <a href="/sakit-tumit" class="main-pny-senarai-link">Sakit Tumit</a>
+                        <a href="/sore-throat" class="main-pny-senarai-link">Sore Throat</a>
+                        <a href="/sakit-belakang-back-pain" class="main-pny-senarai-link">Sakit Belakang</a>
+                        <a href="/senaman-ibu-hamil" class="main-pny-senarai-link">Senaman Ibu Hamil</a>
+                        <a href="/sakit-kepala-ketika-hamil" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Sakit-Kepala Ketika Hamil</a>
+                        <a href="/sihat-di-musim-perayaan" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Sihat di Musim Perayaan</a>
+                        <a href="/tanda-awal-kehamilan" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Tanda Awal Kehamilan</a>
+                        <a href="/tambah-air-ketuban" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Tambah Air Ketuban</a>
+                        <a href="/tongkat-ali" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Tongkat Ali</a>
+                        <a href="/tanda-air-ketuban-pecah" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Tanda Air Ketuban Pecah</a>
+                        <a href="/ubat-kurap-ringworm" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Ubat Kurap Ringworm</a>
+                        <a href="/ubat-sukar-tidur-ubat-insomnia" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Ubat Sukar Tidur Ubat Insomnia</a>
+                        <a href="/urti-flu-demam-selsema" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Urti Flu Demam Selsema</a>
+                        <a href="/vulvitis" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Vulvitis</a>
+                        <a href="/vaginitis" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Vaginitis</a>
+                        <a href="/vitamin-untuk-ibu-hamil" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Vitamin Untuk Ibu Hamil</a>
+                        <a href="/vaginosis-bakteria" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Vaginosis Bakteria</a>
+                        <a href="/waktu-subur-wanita" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Waktu Subur Wanita</a>
+                        <a href="/wabak-polio" class="main-pny-senarai-link hidePenyakitList showPenyakitList">Wabak Polio</a>
+                        
                     </div>
                     <section class="container" style="text-align: center;">
-                        <button onclick="location.href='/penyakit-a-z'" class="main-pny-senarai-readmore">Lihat Semua Senarai Penyakit</button>
+                        <button onclick="showList()" class="main-pny-senarai-readmore" id="hideShowBtn">Lihat Semua Senarai Penyakit</button>
                     </section>
                     
                 </div>
@@ -239,4 +329,5 @@
         </section>
         
     </body>
+    <%include partials/main-footer%>
 </html>
