@@ -2061,7 +2061,7 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   } 
   .search-button svg{
     fill:#fff;
-    width:24px;
+    width:18px;
   }
 
   @media(max-width:576px){
@@ -2409,6 +2409,12 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 
 /*6.0 Second Section*/
 
+.main-pny-svg{
+  height: 15px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
 .main-pny-art-img{
   background: url(images/healthArti/AdobeStock_110900911@2x.png);
   background-repeat: no-repeat;
@@ -2481,6 +2487,10 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   background-image: url('images/healthArti/AdobeStock_105059637.png');
 }
 
+.main-pny-beri-p{
+  font-weight: bold;
+}
+
 .main-pny-section{
   text-align: left;
 }
@@ -2501,7 +2511,7 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 }
 
 .main-py-article-2{
-  color: #2C7EF7;
+  color: #41C0F1;
 }
 
 .main-py-article-rm{
@@ -2532,8 +2542,18 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 
 /*8.0 Topik kesihatan*/
 
-.main-pny-kehamil-sec{
-  margin-bottom: 50px;
+.main-pny-topik-thumb{
+  border-radius: 4px;
+  float: left;
+  margin-right: 10px;
+  width: 152px;
+  height: 95px;
+}
+
+@media(max-width:576px){
+  .main-pny-kehamil-sec{
+    margin-bottom: 50px;
+  }
 }
 
 .main-pny-topik a{
@@ -2590,7 +2610,8 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   }
 
   .main-py-art-hamil-desc{
-    /* color: #2C7EF7; */
+    color: #2C7EF7;
+    font-weight: bold;
     margin: 0;
   }
 
@@ -2713,14 +2734,42 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 
   .main-pny-baru a{
     color: #3C3C3C;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
     text-decoration: none;
   }
 
+  @media(max-width:991px){
+    .main-pny-baru a{
+      margin-bottom: 25px;
+    }
+  }
+  
+  .main-pny-topik-baru{
+    display: inline-block;
+    width: 60%;
+  }
+  @media(max-width:576px){
+    .main-pny-topik-baru{
+      width: 42%;
+    }
+  }
+
   .main-pny-baru p{
-    color: #8E8E8E;
-    margin-bottom: 20px;
+    margin: 0;
+    margin-bottom: 5px;
     margin-top: 5px;
-    text-decoration: none;
+  }
+
+  .main-pny-baru p:nth-child(2){
+    color: #8E8E8E;
+    font-weight: normal;
+
+  }
+
+  .main-pny-baru p:nth-child(1){
+    font-weight: normal;
   }
 
   .main-pny-baru-div a{
@@ -2729,9 +2778,9 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
     text-decoration:none;
   }
 
-  .main-pny-baru-div a:hover{
+  /* .main-pny-baru-div a:hover{
     color: #2C7EF7;
-  }
+  } */
 
 @media(max-width:350px){
   .main-pny-baru-div img{
@@ -2741,16 +2790,20 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 
 .main-pny-baru-video-desc p:nth-child(1){
   color: #3C3C3C;
-  margin-top:5px;
-}
-
-.main-pny-baru-video-desc p:nth-child(1):hover{
-  color: #2C7EF7;
+  font-weight: bold;
+  margin-bottom:5px;
+  margin: 0;
 }
 
   .main-pny-baru-video-desc p:nth-child(2){
-    color: #8E8E8E;
+    color: #000;
+    margin-bottom: 5px;
     margin-top:5px;
+  }
+
+  .main-pny-baru-video-desc p:nth-child(3){
+    color: #8E8E8E;
+    margin: 0;
   }
 
   .main-pny-baru-video-desc{
@@ -2784,7 +2837,7 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 
   .main-pny-senarai-link{
     display: block;
-    margin: 15px;
+    margin: 15px 0;
   }
 
   .main-pny-senarai-readmore{
