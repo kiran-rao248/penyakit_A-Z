@@ -1605,7 +1605,7 @@ _    _ ______          _____  ______ _____
 
 @media(max-width: 960px){
   .header{
-    height: 65px;
+    height: 60px;
   }
 }
 
@@ -1794,7 +1794,7 @@ content: "  |  ";
  
  .pny-main-bg{
     background: #2E5AA9;
-    background-image: url(images/healthArti/doc-pny-banner.png);
+    background-image: url(/images/healthArti/doc-pny-banner.png);
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
@@ -2416,7 +2416,7 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 }
 
 .main-pny-art-img{
-  background: url(images/healthArti/AdobeStock_110900911@2x.png);
+  background: url(/images/healthArti/AdobeStock_110900911@2x.png);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 8px;
@@ -2427,7 +2427,6 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   .main-pny-art-img{
     height: 220px;
     margin: 0 auto;
-    width: 94%;
   }
 }
 
@@ -2476,15 +2475,23 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 }
 
 .main-pny-berita-img-1{
- background-image: url('images/healthArti/cute-girl-in-medical-mask-wearing-mask-on-teddy-bear-during-4000607.png');
+ background-image: url('/images/healthArti/cute-girl-in-medical-mask-wearing-mask-on-teddy-bear-during-4000607.png');
 }
 
 .main-pny-berita-img-2{
-  background-image: url('images/healthArti/AdobeStock_75357733.png');
+  background-image: url('/images/healthArti/AdobeStock_75357733.png');
 }
 
 .main-pny-berita-img-3{
-  background-image: url('images/healthArti/AdobeStock_105059637.png');
+  background-image: url('/images/healthArti/AdobeStock_105059637.png');
+}
+
+.main-pny-berita-img-4{
+  background-image: url('https://www.doctoroncall.com.my/images/pengenalan-coronavirus.jpg');
+}
+
+.main-pny-berita-img-5{
+  background-image: url('https://www.doctoroncall.com.my/images/mitos-vs-fakta-coronavirus.jpg');
 }
 
 .main-pny-beri-p{
@@ -2537,6 +2544,8 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   }
   .main-py-article-1{
     height: 80px;
+    margin: 0;
+    margin-bottom: 20px;
   }
 }
 
@@ -2579,15 +2588,27 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
 }
 
 .main-pny-topik-img-1{
-  background-image: url(images/healthArti/AdobeStock_121099911.png);
+  background-image: url(/images/healthArti/AdobeStock_121099911.png);
 }
 
 .main-pny-topik-img-2{
-  background-image: url(images/healthArti/AdobeStock_102728629.png);
+  background-image: url(/images/healthArti/AdobeStock_102728629.png);
 }
 
 .main-pny-topik-img-3{
-  background-image: url(images/healthArti/AdobeStock_296253083.png);
+  background-image: url(/images/healthArti/AdobeStock_296253083.png);
+}
+
+.main-pny-topik-img-4{
+  background-image: url("https://www.doctoroncall.com.my/images/tanda-awal-kehamilan.jpeg");
+}
+
+.main-pny-topik-img-5{
+  background-image: url("https://www.doctoroncall.com.my/images/senaman%20ibu%20hamil%20(1).jpg");
+}
+
+.main-pny-topik-img-6{
+  background-image: url("https://www.doctoroncall.com.my/images/sakit%20kepala%20ketika%20hamil.jpg");
 }
 
 .main-py-art-hamil-indi img{
@@ -2610,7 +2631,7 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   }
 
   .main-py-art-hamil-desc{
-    color: #2C7EF7;
+    /* color: #41C0F1; */
     font-weight: bold;
     margin: 0;
   }
@@ -2632,7 +2653,7 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
   }
 
   .main-pny-kesihat-img{
-    background-image: url("images/healthArti/ads-covid.png");
+    background-image: url("/images/healthArti/ads-covid.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -2659,7 +2680,7 @@ ____) | |____ / ____ \| | \ \| |____| |  | | |_) / ____ \| | \ \
       height: 115px;
     }
     .main-pny-topik-img{
-      height: 100px;
+      height: 105px;
       margin-right: 10px;
       width: 40%;
     }

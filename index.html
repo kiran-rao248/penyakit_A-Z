@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
             
-    <!-- <link rel="stylesheet" href="/stylesheets/healthArti.css"> -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/stylesheets/healthArti.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 
     <link rel="shortcut icon" href="https://doccampaign.s3-ap-southeast-1.amazonaws.com/coronavirus/home/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://doccampaign.s3-ap-southeast-1.amazonaws.com/coronavirus/home/favicon.ico" type="image/x-icon">
@@ -31,22 +31,22 @@
 
     <body>
         <%include partials/main-pop-up%>
-        <%include partials/main-header%>
+        <%include partials/main-penyakit-header%>
         <section class="container-fluid pny-main-bg">
             <div class="row">
-                <h1>Buat Carian Penyakit</h1>
+                <h1>Senarai Penyakit</h1>
 
                 <div class="searchbarCol main-search-part" id="searchbarCol">
                     <form class="searchbar-form" id="searchbar-form" onsubmit="return false" action="">
                         <div class="search-back-btn" id="search-back-btn" onclick="searchBack()">
-                            <svg viewBox="0 0 31.494 31.494">
-                                <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554  c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587  c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"></path>
-                            </svg>
+                                <svg viewBox="0 0 31.494 31.494">
+                                        <path d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554  c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587  c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"></path>
+                                    </svg>
                         </div>
                         <input type="text" id="searchInput" autocomplete="off" class="main-search-bar searchbar-input" onblur="hideSuggest()" onclick="makeSearchbarMobile()" onkeyup="searchAlgolia()" placeholder="Cari Penyakit, Simptom">
       
                         <div id="searchBtn" class="search-btn search-button" onclick="searchClear()">
-                            <img src="https://doccampaign.s3-ap-southeast-1.amazonaws.com/coronavirus/home/icons8-search-50%20(1).svg" loading="lazy" alt="Search | DoctorOnCall" class="search-btn-icon">
+                                <svg viewBox="0 0 512 512"><path d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>
                         </div>
       
                         <div class="search-result" id="search-result">
@@ -92,35 +92,62 @@
                 <h2>Berita Terkini COVID-19</h2>
                 <div class="row">
                     <div class="main-py-berita">
-                        <a href="/pengenalan-coronavirus/penyebaran" class="col-lg-4 col-md-4 col-xs-4 main-py-br-link">
-                            <div class="main-pny-berita-img main-pny-berita-img-1"></div>
-                            <p class="main-pny-beri-p">COVID-19</p>
-                            <p class="main-py-article-1">Dua Cara Utama COVID-19 tersebar. Haiwan Ke Manusia vs Manusia Ke Manusia</p>
+                        <%
+                            var articles =[{
+                                link:"/pengenalan-coronavirus/penyebaran",
+                                title:"Dua Cara Utama COVID-19 tersebar. Haiwan Ke Manusia vs Manusia Ke Manusia",
+                                date:"May 1, 2020",
+                                imgClass:"main-pny-berita-img-1"
+                            },
+                            {
+                                link:"/pengenalan-coronavirus/gejala",
+                                title:"Ketahui Gejala, Tanda & Simptom Penyakit Coronavirus Sebelum Terlambat!",
+                                date:"May 1, 2020",
+                                imgClass:"main-pny-berita-img-2"
+                            },
+                            {
+                                link:"/pengenalan-coronavirus/komplikasi",
+                                title:"Beberapa Komplikasi Berbahaya Disebabkan Oleh Jangkitan COVID-19",
+                                date:"May 1, 2020",
+                                imgClass:"main-pny-berita-img-3"
+                            },
+                            {
+                                link:"/pengenalan-coronavirus",
+                                title:"Adakah Virus Ini Virus Yang Baru Dijumpai? Bagaimana Virus Ini Membahayakan?",
+                                date:"May 1, 2020",
+                                imgClass:"main-pny-berita-img-4"
+                            },
+                            {
+                                link:"/pengenalan-coronavirus/mitos",
+                                title:"Ketahui Mitos & Fakta Tentang Coronavirus Yang Mungkin Anda Tidak Tahu",
+                                date:"May 1, 2020",
+                                imgClass:"main-pny-berita-img-5"
+                            }]
+                        %>
+
+                        <%
+                        var randomArticles=[]
+                        for(var i=0; i < 3;i++){
+                            var target = Math.floor(Math.random()*articles.length)
+                            randomArticles.push(articles[target])
+                            articles.splice(target, 1)
+                        }
+                        articles = randomArticles
+                        %>
+
+                        <%
+                        for(var i=0; i<articles.length;i++){
+                        %>
+                        <a href="<%= articles[i].link %>" class="col-lg-4 col-md-4 col-xs-4 main-py-br-link">
+                            <div class="main-pny-berita-img <%= articles[i].imgClass %>"></div>
+                            <p class="main-pny-beri-p desktop-only">COVID-19</p>
+                            <p class="main-py-article-1"><%= articles[i].title %></p>
                             <div class="main-py-article-rm">
                                 <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
-                                <p class="main-py-article-3 desktop-only">May 1, 2020</p>
+                                <p class="main-py-article-3 desktop-only"><%= articles[i].date %></p>
                             </div>
                         </a>
-    
-                        <a href="/pengenalan-coronavirus/gejala" class="col-lg-4 col-md-4 col-xs-4 main-py-br-link">
-                            <div class="main-pny-berita-img main-pny-berita-img-2"></div>
-                            <p class="main-pny-beri-p">COVID-19</p>
-                            <p class="main-py-article-1">Ketahui Gejala, Tanda & Simptom Penyakit Coronavirus Sebelum Terlambat!</p>
-                            <div class="main-py-article-rm">
-                                <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
-                                <p class="main-py-article-3 desktop-only">May 1, 2020</p>
-                            </div>
-                        </a>
-    
-                        <a href="/pengenalan-coronavirus/komplikasi" class="col-lg-4 col-md-4 col-xs-4 main-py-br-link">
-                            <div class="main-pny-berita-img main-pny-berita-img-3"></div>
-                            <p class="main-pny-beri-p">COVID-19</p>
-                            <p class="main-py-article-1">Beberapa Komplikasi Berbahaya Disebabkan Oleh Jangkitan COVID-19</p>
-                            <div class="main-py-article-rm">
-                                <p class="main-py-article-2 desktop-only">Baca Selanjutnya</p>
-                                <p class="main-py-article-3 desktop-only">May 1, 2020</p>
-                            </div>
-                        </a>
+                        <%}%>
                     </div>
     
                 </div>
@@ -134,29 +161,75 @@
             <h2>Topik Kesihatan Kehamilan</h2>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 main-pny-topik">
-                    <a href="/punca-rahim-kembang" class="main-py-art-hamil-indi">
-                        <div class="main-pny-topik-img main-pny-topik-img-1"></div>
-                        <p class="main-py-art-hamil-desc">Punca Rahim Kembang</p>
-                        <p class="desktop-only">Ibu tidak digalakkan untuk mengambil ais semasa berpantang kerana ini dikatakan boleh menyebabkan rahim kembang ataupun rahim terjatuh/terkeluar</p>
-                        <p class="mobile-only">Ibu tidak digalakkan untuk mengambil ais semasa..</p>
-                        <p class="main-py-art-hamil-date desktop-only">May 1, 2020</p>
-                    </a>
+                    <%
+                        var topicArticles=[{
+                            link:"/punca-rahim-kembang",
+                            img:"main-pny-topik-img-1",
+                            title:"Punca Rahim Kembang",
+                            descDesktop:"Ibu tidak digalakkan untuk mengambil ais semasa berpantang kerana ini dikatakan boleh menyebabkan rahim kembang ataupun rahim terjatuh/terkeluar",
+                            descMobile:"Ibu tidak digalakkan untuk mengambil ais semasa..",
+                            date:"May 1, 2020"
+                        },
+                        {
+                            link:"/pantang-selepas-ceaser",
+                            img:"main-pny-topik-img-2",
+                            title:"Pantang Selepas Ceaser",
+                            descDesktop:"Selepas pembedahan czer, ini adalah masa untuk memulihkan semula badan anda dari keletihan mental dan fizikal. Sebab itu, pantang bersalin czer ini sangat penting…",
+                            descMobile:"Selepas pembedahan czer, ini adalah masa untuk memulihkan..",
+                            date:"May 1, 2020"
+                        },
+                        {
+                            link:"/penjagaan-kulit-ketika-hamil",
+                            img:"main-pny-topik-img-3",
+                            title:"Penjagaan Kulit Ketika Hamil",
+                            descDesktop:"Wanita hamil akan mengalami perubahan pada tubuh badan akibat gangguan hormon ketika mengandung. Bukan saja emosi wanita hamil akan lebih beremosi",
+                            descMobile:"Selepas pembedahan czer, ini adalah masa untuk memulihkan..",
+                            date:"May 1, 2020"
+                        },
+                        {
+                            link:"/tanda-awal-kehamilan",
+                            img:"main-pny-topik-img-4",
+                            title:"Tanda-tanda Awal Kehamilan",
+                            descDesktop:"Seseorang wanita boleh melakukan ujian kecing UPT untuk menentukan kehamilan secara objektif. Kebanyakkan wanita akan mempunyai tanda-tanda awal kehamilan",
+                            descMobile:"Seseorang wanita boleh melakukan ujian kecing UPT..",
+                            date:"Aug 18, 2018"
+                        },
+                        {
+                            link:"/senaman-ibu-hamil",
+                            img:"main-pny-topik-img-5",
+                            title:"Senaman Dilakukan Oleh Ibu Hamil",
+                            descDesktop:"Ketika hamil, mungkin sukar untuk melakukan senaman. Mana tidaknya, perut pun makin besar. Tapi, 7 senaman ibu mengandung ini mudah saja.",
+                            descMobile:"Ketika hamil, mungkin sukar untuk melakukan senaman...",
+                            date:"Aug 18, 2018"
+                        },
+                        {
+                            link:"/sakit-kepala-ketika-hamil",
+                            img:"main-pny-topik-img-6",
+                            title:"Apakah Punca Ibu Hamil Sering Sakit Kepala",
+                            descDesktop:"Kehamilan menyebabkan pelbagai perubahan pada tubuh sesetengah wanita seperti keletihan, loya, dan perubahan mood. Umumnya, pada trimester pertama kehamilan,",
+                            descMobile:"Kehamilan menyebabkan pelbagai perubahan pada tubuh sesetengah...",
+                            date:"Aug 18, 2018"
+                        }]
+                    %>
 
-                    <a href="/pantang-selepas-ceaser" class="main-py-art-hamil-indi">
-                        <div class="main-pny-topik-img main-pny-topik-img-2"></div>
-                        <p class="main-py-art-hamil-desc">Pantang Selepas Ceaser</p>
-                        <p class="desktop-only">Selepas pembedahan czer, ini adalah masa untuk memulihkan semula badan anda dari keletihan mental dan fizikal. Sebab itu, pantang bersalin czer ini sangat penting…</p>
-                        <p class="mobile-only">Selepas pembedahan czer, ini adalah masa untuk memulihkan..</p>
-                        <p class="main-py-art-hamil-date desktop-only">May 1, 2020</p>
-                    </a>
+                    <% var topicrandomArticles = []
+                        for(var i = 0; i < 6 ; i++){
+                            var target = Math.floor(Math.random()*topicArticles.length)
+                            topicrandomArticles.push(topicArticles[target])
+                            topicArticles.splice(target, 1)
+                        }
+                        topicArticles = topicrandomArticles
+                    %>
 
-                    <a href="/penjagaan-kulit-ketika-hamil" class="main-py-art-hamil-indi">
-                        <div class="main-pny-topik-img main-pny-topik-img-3"></div>
-                        <p class="main-py-art-hamil-desc">Penjagaan Kulit Ketika Hamil</p>
-                        <p class="desktop-only">Wanita hamil akan mengalami perubahan pada tubuh badan akibat gangguan hormon ketika mengandung. Bukan saja emosi wanita hamil akan lebih beremosi</p>
-                        <p class="mobile-only">Selepas pembedahan czer, ini adalah masa untuk memulihkan..</p>
-                        <p class="main-py-art-hamil-date desktop-only">May 1, 2020</p>
+                    <%for(var i=0; i < 3; i++){%>
+                    <a href="<%= topicArticles[i].link%>" class="main-py-art-hamil-indi">
+                        <div class="main-pny-topik-img <%= topicArticles[i].img%>"></div>
+                        <p class="main-py-art-hamil-desc"><%= topicArticles[i].title%></p>
+                        <p class="desktop-only"><%= topicArticles[i].descDesktop%></p>
+                        <p class="mobile-only"><%= topicArticles[i].descMobile%></p>
+                        <p class="main-py-art-hamil-date desktop-only"><%= topicArticles[i].date%></p>
                     </a>
+                    <%}%>
                 </div>
                 
                 <!-- <section class="container main-pny-section mobile-only">
@@ -222,7 +295,7 @@
                     <h2>YouTube DoctorOnCall</h2>
                     <div class="main-pny-baru-div">
                         <a href="https://www.youtube.com/watch?v=5G-85X6rc7s" target="_blank" class="main-pny-baru-video">
-                            <img src="images/healthArti/Apakah penyebab psoriasis@2x.png">
+                            <img src="/images/healthArti/Apakah penyebab psoriasis@2x.png">
                             <div class="main-pny-baru-video-desc">
                                 <p>Apakah penyebab psoriasis</p>
                                 <p>Dr Nur Syuhada Binti Zulkifli</p>
@@ -230,7 +303,7 @@
                             </div>
                         </a>
                         <a href="https://www.youtube.com/watch?v=YPy7gKYCyqk" target="_blank">
-                            <img src="images/healthArti/Faktor-faktor risiko@2x.png">
+                            <img src="/images/healthArti/Faktor-faktor risiko@2x.png">
                             <div class="main-pny-baru-video-desc">
                                 <p>Faktor faktor risiko Batu hempedu</p>
                                 <p>Dr M Ramzdhan</p>
@@ -238,7 +311,7 @@
                             </div>
                         </a>
                         <a href="https://www.youtube.com/watch?v=gOnCU1daoNI" target="_blank">
-                            <img src="images/healthArti/Punca Impotensi@2x.png">
+                            <img src="/images/healthArti/Punca Impotensi@2x.png">
                             <div class="main-pny-baru-video-desc">
                                 <p>Punca Impotensi</p>
                                 <p>Dr Ilias Yee</p>
@@ -246,7 +319,7 @@
                             </div>
                         </a>
                         <a href="https://www.youtube.com/watch?v=cuVo-kcDNs0" target="_blank">
-                            <img src="images/healthArti/Herpes Simplex@2x.png">
+                            <img src="/images/healthArti/Herpes Simplex@2x.png">
                             <div class="main-pny-baru-video-desc">
                                 <p>Herpes Simplex</p>
                                 <p>Dr Ilias Yee</p>
